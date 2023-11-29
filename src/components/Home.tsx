@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div className="home relative h-[508px] flex flex-col justify-evenly items-center gap-12 py-16 bg-no-repeat bg-top bg-[url('./assets/bg2.jpg')] bg-cover">
@@ -11,9 +12,12 @@ const Home = () => {
           perfect van to make your perfect road trip.
         </p>
       </div>
-      <button className=" text-white text-base not-italic px-36 py-2 font-bold bg-[#FF8C38] rounded-md leading-8 z-10  hover:scale-110 transition-all">
+      <Link
+        className=" text-white text-base not-italic px-36 py-2 font-bold bg-[#FF8C38] rounded-md leading-8 z-10  hover:scale-110 transition-all"
+        to="/vans"
+      >
         Find your van
-      </button>
+      </Link>
     </div>
   );
 };

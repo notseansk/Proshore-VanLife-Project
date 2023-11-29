@@ -1,0 +1,141 @@
+import { useEffect, useState } from "react"; import "../server.js"; import
+VansList from "./VansList.js"; const Vans = () => { const [vans, setVans] =
+useState([]); useEffect(() => { fetch("/api/vans") .then((res) => res.json())
+.then((data) => { setVans(data); }); }, []); // const vans = [ // { // name:
+"Shaun", // id: "1", // description: "hy myy", // imageUrl: "url", // price: 20,
+// type: "man", // }, // ]; interface VansType { name: string; id: string;
+description: string; imageUrl: string; price: number; type: string; } return (
+<div className="vans container m-auto">
+  <h1 className="font-bold text-4xl m-10 ">Explore our van option</h1>
+  <div
+    className="list-vans flex flex-row flex-wrap gap-5 items-center justify-center"
+  >
+    {vans.map((one: VansType) => (
+    <VansList
+      key="{one.id}"
+      name="{one.name}"
+      price="{one.price}"
+      imageUrl="{one.imageUrl}"
+      type="{one.type}"
+    />
+    ))} {/* <VansList name={"Modest Explorer"} price={60}
+    imageUrl={"./assets/van1.jpg"} type={"simple"} /> */} {/*
+    <div className="van1 w-max p-10">
+      <div
+        className=" bg-[url('./assets/van1.jpg')] w-[240px] aspect-square bg-center bg-no-repeat bg-cover rounded-lg"
+      ></div>
+      <div
+        className="flex flex-row text-xl font-semibold justify-between item-center  leading-8 text-[#161616] pt-4"
+      >
+        <h2>Modest Explorer</h2>
+        <h2>$60</h2>
+      </div>
+      <div className="flex flex-row justify-between text-[#161616]">
+        <button
+          className="rounded-lg font-semibold text-base py-[0.20rem] px-[0.90rem] text-white bg-[#E17654] mt-4"
+        >
+          Simple
+        </button>
+        <p className="text-[0.9rem] mt-[-0.7rem]">/day</p>
+      </div>
+    </div>
+    */} {/*
+    <div className="van2 w-max p-10">
+      <div
+        className=" bg-[url('./assets/van1.jpg')] w-[240px] aspect-square bg-center bg-no-repeat bg-cover rounded-lg"
+      ></div>
+      <div
+        className="flex flex-row text-xl font-semibold justify-between item-center  leading-8 text-[#161616] pt-4"
+      >
+        <h2>Modest Explorer</h2>
+        <h2>$60</h2>
+      </div>
+      <div className="flex flex-row justify-between text-[#161616]">
+        <button
+          className="rounded-lg font-semibold text-base py-[0.20rem] px-[0.90rem] text-white bg-[#E17654] mt-4"
+        >
+          Simple
+        </button>
+        <p className="text-[0.9rem] mt-[-0.7rem]">/day</p>
+      </div>
+    </div>
+    <div className="van3 w-max p-10">
+      <div
+        className=" bg-[url('./assets/van1.jpg')] w-[240px] aspect-square bg-center bg-no-repeat bg-cover rounded-lg"
+      ></div>
+      <div
+        className="flex flex-row text-xl font-semibold justify-between item-center  leading-8 text-[#161616] pt-4"
+      >
+        <h2>Modest Explorer</h2>
+        <h2>$60</h2>
+      </div>
+      <div className="flex flex-row justify-between text-[#161616]">
+        <button
+          className="rounded-lg font-semibold text-base py-[0.20rem] px-[0.90rem] text-white bg-[#E17654] mt-4"
+        >
+          Simple
+        </button>
+        <p className="text-[0.9rem] mt-[-0.7rem]">/day</p>
+      </div>
+    </div>
+    <div className="van4 w-max p-10">
+      <div
+        className=" bg-[url('./assets/van1.jpg')] w-[240px] aspect-square bg-center bg-no-repeat bg-cover rounded-lg"
+      ></div>
+      <div
+        className="flex flex-row text-xl font-semibold justify-between item-center  leading-8 text-[#161616] pt-4"
+      >
+        <h2>Modest Explorer</h2>
+        <h2>$60</h2>
+      </div>
+      <div className="flex flex-row justify-between text-[#161616]">
+        <button
+          className="rounded-lg font-semibold text-base py-[0.20rem] px-[0.90rem] text-white bg-[#E17654] mt-4"
+        >
+          Simple
+        </button>
+        <p className="text-[0.9rem] mt-[-0.7rem]">/day</p>
+      </div>
+    </div>
+    <div className="van5 w-max p-10">
+      <div
+        className=" bg-[url('./assets/van1.jpg')] w-[240px] aspect-square bg-center bg-no-repeat bg-cover rounded-lg"
+      ></div>
+      <div
+        className="flex flex-row text-xl font-semibold justify-between item-center  leading-8 text-[#161616] pt-4"
+      >
+        <h2>Modest Explorer</h2>
+        <h2>$60</h2>
+      </div>
+      <div className="flex flex-row justify-between text-[#161616]">
+        <button
+          className="rounded-lg font-semibold text-base py-[0.20rem] px-[0.90rem] text-white bg-[#E17654] mt-4"
+        >
+          Simple
+        </button>
+        <p className="text-[0.9rem] mt-[-0.7rem]">/day</p>
+      </div>
+    </div>
+    <div className="van6 w-max p-10">
+      <div
+        className=" bg-[url('./assets/van1.jpg')] w-[240px] aspect-square bg-center bg-no-repeat bg-cover rounded-lg"
+      ></div>
+      <div
+        className="flex flex-row text-xl font-semibold justify-between item-center  leading-8 text-[#161616] pt-4"
+      >
+        <h2>Modest Explorer</h2>
+        <h2>$60</h2>
+      </div>
+      <div className="flex flex-row justify-between text-[#161616]">
+        <button
+          className="rounded-lg font-semibold text-base py-[0.20rem] px-[0.90rem] text-white bg-[#E17654] mt-4"
+        >
+          Simple
+        </button>
+        <p className="text-[0.9rem] mt-[-0.7rem]">/day</p>
+      </div>
+    </div>
+    */}
+  </div>
+</div>
+); }; export default Vans;

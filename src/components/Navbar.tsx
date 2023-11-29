@@ -11,6 +11,12 @@ const Navbar = () => {
       <div className="nav-items flex gap-4">
         <Link
           className=" font-semibold text-base text-[#4d4d4d] leading-6 not-italic focus:underline"
+          to="/"
+        >
+          Home
+        </Link>
+        <Link
+          className=" font-semibold text-base text-[#4d4d4d] leading-6 not-italic focus:underline"
           to="/about"
         >
           About

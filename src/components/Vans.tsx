@@ -1,7 +1,41 @@
+import { useEffect, useState } from "react";
+import "../server.js";
+import VansList from "./VansList.js";
+
 const Vans = () => {
+  interface VansType {
+    name: string;
+    id: string;
+    description: string;
+    imageUrl: string;
+    price: number;
+    type: string;
+  }
+  const [vansList, setVansList] = useState<VansType[]>([]);
+
+  useEffect(() => {
+    fetch("/api/vans")
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data.vans);
+        setVansList(data.vans);
+      });
+  }, []);
+
   return (
-    <div className="vans container">
-      <h1>Hello! This is Vans Page.</h1>
+    <div className="vans container m-auto">
+      <h1 className="font-bold text-4xl m-10 ">Explore our van option</h1>
+      <div className="list-vans flex flex-row flex-wrap gap-5 items-center justify-center">
+        {vansList.map((one: VansType) => (
+          <VansList
+            key={one.id}
+            name={one.name}
+            price={one.price}
+            imageUrl={one.imageUrl}
+            type={one.type}
+          />
+        ))}
+      </div>
     </div>
   );
 };
