@@ -34,7 +34,7 @@ const HostVanDetails = () => {
     <div>
       {Object.keys(hostVanDetails).length ? (
         <div className="h-screen">
-          <Link to="/host/vans">
+          <Link to=".." relative="path">
             <p className="font-light text-xm my-6">
               &lt;-&nbsp;
               <span className="underline">Back to all vans</span>

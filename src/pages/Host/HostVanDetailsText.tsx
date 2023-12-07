@@ -4,7 +4,7 @@ const HostVanDetailsText = () => {
   const [name, type, description] = useOutletContext() as HostVansDetailsType;
 
   return (
-    <div className="py-12">
+    <div className="py-14">
       <h1 className="py-[8px]">
         <span className="font-bold text-md ">Name:</span>
         &nbsp;{name}

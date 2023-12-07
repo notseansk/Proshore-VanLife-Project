@@ -25,7 +25,7 @@
 
 // export default HostVansDetailsLayout;
 import { useEffect, useState } from "react";
-import { useParams, Link, Outlet } from "react-router-dom";
+import { useParams, Link, NavLink, Outlet } from "react-router-dom";
 
 const HostVanDetailsLayout = () => {
   type HostVansDetailsType = {
@@ -69,9 +69,9 @@ const HostVanDetailsLayout = () => {
           {/* -----------DIV-> VAN IMAGE SECTION & DETAILS SECTION SIDE BY SIDE---------- */}
           <div className="grid grid-cols-2 gap-12 bg-white p-16 rounded-lg shadow-lg">
             {/* -------DIV-> IMAGE DIV-------- */}
-            <div className="aspect-square">
+            <div className="">
               <img
-                className="rounded-2xl shadow-2xl"
+                className="rounded-2xl shadow-2xl max-w-[400px] aspect-square"
                 src={hostVanDetails.imageUrl}
                 alt="van image"
               />
@@ -100,18 +100,18 @@ const HostVanDetailsLayout = () => {
                 </p>
               </div>
               <div className="flex gap-6">
-                <Link className="underline" to="">
+                <NavLink className="underline" to=".">
                   Details
-                </Link>
-                <Link className="underline" to="pricing">
+                </NavLink>
+                <NavLink className="underline" to="pricing">
                   Pricing
-                </Link>
-                <Link className="underline" to="photos">
+                </NavLink>
+                <NavLink className="underline" to="photos">
                   Photos
-                </Link>
-                <Link className="ml-auto" to="">
+                </NavLink>
+                <NavLink className="ml-auto" to="">
                   E
-                </Link>
+                </NavLink>
               </div>
 
               <Outlet
@@ -119,6 +119,8 @@ const HostVanDetailsLayout = () => {
                   hostVanDetails.name,
                   hostVanDetails.type,
                   hostVanDetails.description,
+                  hostVanDetails.price,
+                  hostVanDetails.imageUrl,
                 ]}
               />
             </div>

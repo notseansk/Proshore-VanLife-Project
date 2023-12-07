@@ -26,7 +26,7 @@ const VanDetails = () => {
     <>
       {Object.keys(details).length ? (
         <div className="h-screen px-[200px]">
-          <Link to="/vans">
+          <Link to=".." relative="path">
             <p className="font-light text-xm my-6">
               &lt;-&nbsp;
               <span className="underline">Back to all vans</span>
