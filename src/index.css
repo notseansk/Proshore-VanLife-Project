@@ -6,5 +6,17 @@
     font-family: inter;
 } */
 body {
+  background-color: #fff7ed;
   font-family: "Inter", sans-serif;
+}
+
+/* ------------Q) Can this be done?--------- */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+.footer {
+  margin-top: auto;
 }
