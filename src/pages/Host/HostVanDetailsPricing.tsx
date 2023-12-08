@@ -1,14 +1,8 @@
 import { useOutletContext } from "react-router-dom";
 const HostVanDetailsPricing = () => {
-  type HostVansDetailsType = [
-    name: string,
-    type: string,
-    description: string,
-    price: number
-  ];
+  type HostVansDetailsPriceType = { price: string };
 
-  const [name, type, description, price] =
-    useOutletContext() as HostVansDetailsType;
+  const { price } = useOutletContext() as HostVansDetailsPriceType;
   return (
     <div className="flex gap-1 py-14 items-center">
       <p className="text-2xl font-semibold">${price}</p>

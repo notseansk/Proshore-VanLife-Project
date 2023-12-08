@@ -1,15 +1,10 @@
 import { useOutletContext } from "react-router-dom";
 const HostVanDetailsPhotos = () => {
-  type HostVansDetailsType = [
-    name: string,
-    type: string,
-    description: string,
-    price: number,
-    imageUrl: string
-  ];
+  type HostVansDetailsPhotosType = {
+    imageUrl: string;
+  };
 
-  const [name, type, description, price, imageUrl] =
-    useOutletContext() as HostVansDetailsType;
+  const { imageUrl } = useOutletContext() as HostVansDetailsPhotosType;
   return (
     <div>
       <img

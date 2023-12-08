@@ -113,8 +113,8 @@ const HostVanDetailsLayout = () => {
                   E
                 </NavLink>
               </div>
-
-              <Outlet
+              <Outlet context={hostVanDetails} />
+              {/* <Outlet
                 context={[
                   hostVanDetails.name,
                   hostVanDetails.type,
@@ -122,7 +122,7 @@ const HostVanDetailsLayout = () => {
                   hostVanDetails.price,
                   hostVanDetails.imageUrl,
                 ]}
-              />
+              /> */}
             </div>
           </div>
         </div>
