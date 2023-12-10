@@ -15,6 +15,7 @@ import HostVanDetailsText from "../pages/Host/HostVanDetailsText";
 import HostVanDetailsPricing from "../pages/Host/HostVanDetailsPricing";
 import HostVanDetailsPhotos from "../pages/Host/HostVanDetailsPhotos";
 import HostVansDetailsLayout from "../pages/Host/HostVanDetailsLayout";
+import PageNotFound from "./PageNotFound";
 
 const App = () => {
   return (
@@ -36,6 +37,7 @@ const App = () => {
               <Route path="photos" element={<HostVanDetailsPhotos />} />
             </Route>
           </Route>
+          <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>

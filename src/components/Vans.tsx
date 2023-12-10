@@ -15,6 +15,7 @@ const Vans = () => {
   }
   const [vansList, setVansList] = useState<VansType[]>([]);
   const [searchParams, setSearchParams] = useSearchParams();
+  const searchQuery = searchParams.toString();
 
   // const tempVansList = vansList.filter(
   //   (one) => one.type.toLowerCase() === filterTypeOfVan
@@ -27,7 +28,8 @@ const Vans = () => {
         setVansList(
           filterTypeOfVan
             ? data.vans.filter(
-                (one: any) => one.type.toLowerCase() === filterTypeOfVan
+                (oneVan: VansType) =>
+                  oneVan.type.toLowerCase() === filterTypeOfVan
               )
             : data.vans
         );
@@ -77,14 +79,15 @@ const Vans = () => {
       </div>
       <div className="list-vans flex flex-row flex-wrap gap-5 items-center justify-center">
         {vansList ? (
-          vansList.map((one: VansType) => (
+          vansList.map((oneVan: VansType) => (
             <VansList
-              key={one.id}
-              id={one.id}
-              name={one.name}
-              price={one.price}
-              imageUrl={one.imageUrl}
-              type={one.type}
+              key={oneVan.id}
+              id={oneVan.id}
+              name={oneVan.name}
+              price={oneVan.price}
+              imageUrl={oneVan.imageUrl}
+              type={oneVan.type}
+              searchQuery={searchQuery}
             />
           ))
         ) : (

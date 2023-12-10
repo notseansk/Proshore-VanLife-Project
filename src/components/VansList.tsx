@@ -5,11 +5,21 @@ interface Props {
   imageUrl: string;
   type: string;
   id: string;
+  searchQuery: string;
+  // filterTypeOfVan: string;
 }
 // ---------------------rendering each van---------------------
-const VansList = ({ name, price, imageUrl, type, id }: Props) => {
+const VansList = ({
+  name,
+  price,
+  imageUrl,
+  type,
+  id,
+  searchQuery,
+}: // filterTypeOfVan,
+Props) => {
   return (
-    <Link to={id}>
+    <Link to={id} state={{ searchQuery: `?${searchQuery}` }}>
       <div className="van1 w-max p-10">
         <div className={"w-[240px] aspect-square rounded-lg"}>
           <img className="rounded-lg" src={imageUrl} alt="not found" />

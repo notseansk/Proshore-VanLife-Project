@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 type TypeVan = {
   [key: string]: {
@@ -12,6 +12,10 @@ type TypeVan = {
 };
 
 const VanDetails = () => {
+  const searchObject = useLocation();
+  // console.log(searchObject);
+  const search = searchObject.state ? searchObject.state.searchQuery : "";
+  // const type = searchObject.state ? searchObject.state.type : "";
   const params = useParams();
   const [details, setDetails] = useState<TypeVan>({});
   useEffect(() => {
@@ -22,14 +26,19 @@ const VanDetails = () => {
       })
       .catch((error) => console.log(error));
   }, [params.id]);
+
   return (
     <>
       {Object.keys(details).length ? (
         <div className="h-screen px-[200px]">
-          <Link to=".." relative="path">
+          <Link to={`..${search}`} relative="path">
             <p className="font-light text-xm my-6">
               &lt;-&nbsp;
-              <span className="underline">Back to all vans</span>
+              <span className="underline">
+                {search === "?"
+                  ? "Back to all vans"
+                  : `Back to ${details.vans.type} vans`}
+              </span>
             </p>
           </Link>
           {/* -----------DIV-> VAN IMAGE SECTION & DETAILS SECTION SIDE BY SIDE---------- */}
